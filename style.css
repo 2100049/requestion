@@ -1,0 +1,166 @@
+@charset "utf8";
+body{
+    padding-bottom: 20px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.divlink{
+    position:relative;
+}
+
+.divlink .link{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ltext{
+    font-size: 1.2em;
+}
+
+.submitlink{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: #0d6efd;
+    text-decoration: underline;
+}
+
+.bookmark{
+    font-size: 1.5em;
+    transition: 0.2s;
+}
+.bookmark:hover{
+    color: rgb(255, 234, 42);
+    transform: scale(1.2);
+}
+
+.yellow{
+    color: rgb(255, 234, 42);
+}
+
+.fin{
+    cursor : pointer;
+}
+
+.resbox{
+    max-height: 500px;
+    overflow: auto;
+}
+
+.icon{
+    border-radius: 50%;
+}
+.userlink{
+    z-index: 1000;
+}
+.qicon{
+    font-size: 2.5em;
+    bottom: 30px;
+    right: 30px;
+    position: fixed;
+
+    padding: 5px;
+    background-color: rgb(51, 114, 187);
+    color: white;
+    border-radius: 10%;
+
+    border: none;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+
+    transition: 0.5s;
+}
+
+.qicon:hover{
+    transform: scale(1.2);
+}
+
+.chatbox{
+    width: 80%;
+    height: 500px;
+    min-width: 700px;
+}
+.friend{
+    width: 30%;
+    overflow: auto;
+}
+.chat{
+    height: 500px;
+    overflow: auto;
+}
+.mychat{
+    background-color: rgb(71, 124, 133);
+    color: white;
+}
+
+.rate{
+    position: relative;
+    z-index: 100;
+}
+
+.blue{
+    color: rgb(60, 60, 255);
+}
+.red{
+    color: rgb(255, 60, 60);
+}
+.good{
+    transition: 0.3s;
+}
+.bad{
+    transition: 0.3s;
+}
+.good:hover{
+    transform: scale(1.5);
+}
+.bad:hover{
+    transform: scale(1.5);
+}
+
+.profilecontentsbox{
+    width: 80%;
+    min-width: 700px;
+}
+.profilebox{
+    width: 40%;
+    position: relative;
+}
+.introbox{
+    max-height: 150px;
+    overflow: auto;
+    word-break: break-all;
+}
+.historybox{
+    width: 100%;
+}
+.historylist{
+    height: 550px;
+    overflow: auto;
+}
+
+.catbox{
+    width: 50%;
+    min-width: 500px;
+}
+.friendbox{
+    width: 40%;
+    min-width: 400px;
+}
+
+/* 検索補完のスタイル */
+.ui-widget-content{
+    z-index: 100000 !important;
+}
