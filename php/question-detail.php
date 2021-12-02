@@ -133,7 +133,7 @@ echo <<<HTML
 HTML;
 
 if ($count == 0){
-    echo '<div class="text-center">まだ回答がついていないようです</div>';
+    echo '<div class="text-center pt-2 pb-2">まだ回答がついていないようです</div>';
 }
 
 foreach ($sql as $row){
@@ -141,7 +141,7 @@ foreach ($sql as $row){
     
     echo <<<HTML
     <li class="list-group-item p-0 pt-2">
-        <div class="divlink">
+        <div class="divlink anstrans bg-white">
     HTML;
     
     require 'output/output-answer.php';
@@ -185,7 +185,7 @@ foreach ($sql as $row){
     if (!$count){
         echo '<div class="text-center">まだ返信がついていないようです<div>';
     }
-    
+
     require 'form/form-response.php';
     
     echo '</div>';

@@ -5,7 +5,7 @@ function h($text){
     return $htext;
 }
 
-//アラート表示
+// アラート表示
 function alert($message){
     echo <<<HTML
     <script>
@@ -15,11 +15,11 @@ function alert($message){
 }
 
 //確認ダイアログボタン表示
-function alertbutton($button, $message, $link, $class, $hidden){
-    echo <<<HTML
-    <a class="$class" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-message='$message' data-link='$link' data-hidden='$hidden'>$button</a>
-    HTML;
-}
+// function alertbutton($button, $message, $link, $class, $hidden){
+//     echo <<<HTML
+//     <a class="$class" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-message='$message' data-link='$link' data-hidden='$hidden'>$button</a>
+//     HTML;
+// }
 
 //ログイン状態チェック
 function in(){

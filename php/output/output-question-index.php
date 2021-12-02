@@ -13,7 +13,7 @@ foreach ($img as $hoge) {
 
 echo <<<HTML
 <div class="d-flex">
-<div class="text-center border-end p-2">
+<div class="text-center border-end p-2 ps-0" style="width: 20%;">
     <div><img src="$meimg" class="rounded-circle border border-2" style="width: 40px; height: 40px"></div>
     <div>
         <span class="bold">$row[AC_NAME]</span>
@@ -22,7 +22,7 @@ echo <<<HTML
 HTML;
 
 echo <<<HTML
-<div class="p-2" style="width: 100%;">
+<div class="p-2 pe-0" style="width: 100%;">
     <span class="ltext">$QUE</span>
 HTML;
 

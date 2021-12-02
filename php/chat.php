@@ -68,7 +68,7 @@ $(function(){
   const anchor =  location.hash.substring(1);
   const href = $('.list-group-item').first().attr("href");
   if(!href){
-    $('.fs-3').html('相互フォロワーがいません！<br>プロフィールからフォローできます');
+    $('.list-group').html('<p>相互フォロワーがいません！<br>プロフィールからフォローできます</p>');
   } else if(!anchor){
     $('.list-group-item').first().addClass('active');
     location.href = href;

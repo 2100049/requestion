@@ -160,6 +160,13 @@ body{
     min-width: 400px;
 }
 
+.anstrans{
+    transition: 0.2s;
+}
+.anstrans:hover{
+    transform: scale(1.01);
+}
+
 /* 検索補完のスタイル */
 .ui-widget-content{
     z-index: 100000 !important;

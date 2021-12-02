@@ -190,3 +190,22 @@ function mod_link(mess,link){
   $(".modal-body").html(mess);
   document.mod_form.action = link;
 };
+
+// tag補助
+exampleDataList
+function inputtag() {
+  $.ajax({
+    type: 'post',
+    url: './tag_comp.php',
+    data: {
+      'message' : $("#exampleDataList").val()
+    }
+  })
+  .then(
+    function (data) {
+      $("#datalistOptions").html(data)
+    },
+      function () {
+        alert("読み込み失敗");
+      });
+}

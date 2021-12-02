@@ -6,7 +6,7 @@
 if (isset($_REQUEST['AC_NAME'])){
     unset($_SESSION['ACCOUNT']);
 
-    $sql=$pdo->prepare('SELECT * FROM ACCOUNT WHERE AC_NAME=? AND BINARY AC_PASS=?');
+    $sql=$pdo->prepare('SELECT * FROM ACCOUNT WHERE BINARY AC_NAME=? AND BINARY AC_PASS=?');
     $sql->execute([$_REQUEST['AC_NAME'], $_REQUEST['AC_PASS']]);
 
     foreach ($sql as $row){
@@ -32,28 +32,28 @@ if (isset($_SESSION['REGISTER'])){
 }
 ?>
 
-<section class="contents mt-5">
-    <div class="mx-auto border bg-light p-3" style="width: 500px;">
-        <p class="tytle text-center">ログイン</p>
+<div class="text-center mt-5"><img src="../img/logo.svg" style="height: 30px;"></div>
 
-        <form class="m-5" method="POST">
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">ユーザーID</label>
-                <input type="text" class="form-control" name="AC_NAME" value="<?= $AC_NAME ?>" maxlength="15" required autofocus>
-            </div>
-    
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">パスワード</label>
-                <input type="password" class="form-control" name="AC_PASS" value="<?= $AC_PASS ?>" maxlength="100" required>
-            </div>
-    
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <input type="submit" class="btn btn-secondary btn-sm" id="btn" value="ログイン">
-            </div>
-        </form>
-    
-        <a href="register.php"><span class="smtxt">アカウントを作成する</span></a>
+<div class="mx-auto border bg-white shadow-sm mt-2 p-5" style="width: 500px;">
+    <h3 class="text-center">ログイン</h3>
+
+    <form class="mt-5" method="POST">
+        <div>
+            <input type="text" class="form-control" name="AC_NAME" placeholder="ユーザーID" value="<?= $AC_NAME ?>" maxlength="15" required autofocus>
+        </div>
+
+        <div class="mt-2">
+            <input type="password" class="form-control" name="AC_PASS" placeholder="パスワード" value="<?= $AC_PASS ?>" maxlength="100" required>
+        </div>
+
+        <div class="text-center mt-5">
+            <input type="submit" class="btn btn-primary btn-sm" id="btn" value="ログイン" style="width: 100%;">
+        </div>
+    </form>
+
+    <div class="text-center">
+        <a href="register.php"><small>アカウントを作成する</small></a>
     </div>
-</section>
+</div>
 
 <?php require_once '../footer.php' ?>

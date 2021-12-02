@@ -30,7 +30,7 @@ if($notif_chat->rowCount()){
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom mb-5">
     <div class="container-fluid">
         <div class="navbar-brand">
-        <a class="nav-link <?php if (nowp('/REQUESTION/php/index.php')){echo 'active';} ?>" aria-current="page" href="index.php">    
+        <a class="nav-link <?php if (nowp('/requestion/php/index.php')){echo 'active';} ?>" aria-current="page" href="index.php">    
             <img src="../img/logo.svg" alt="ロゴ" height="30">
         </a>
         </div>
@@ -40,11 +40,11 @@ if($notif_chat->rowCount()){
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto me-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link <?php if (nowp('/REQUESTION/php/index.php')){echo 'active';} ?>" aria-current="page" href="index.php">ホーム</a>
+                    <a class="nav-link <?php if (nowp('/requestion/php/index.php')){echo 'active';} ?>" aria-current="page" href="index.php">ホーム</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link <?php if (nowp('/REQUESTION/php/profile-view.php')){echo 'active';} ?>" href="
+                    <a class="nav-link <?php if (nowp('/requestion/php/profile-view.php')){echo 'active';} ?>" href="
                         <?php
                         if (isset($_SESSION['ACCOUNT']['AC_ID'])){
                             echo 'profile-view.php?'. $_SESSION['ACCOUNT']['AC_ID'];
@@ -56,18 +56,18 @@ if($notif_chat->rowCount()){
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link <?php if (nowp('/REQUESTION/php/catlist.php')){echo 'active';} ?>" href="catlist.php">
+                    <a class="nav-link <?php if (nowp('/requestion/php/catlist.php')){echo 'active';} ?>" href="catlist.php">
                     カテゴリ一覧
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if (nowp('/REQUESTION/php/chat.php')){echo 'active';} ?>" href="chat.php">
+                    <a class="nav-link <?php if (nowp('/requestion/php/chat.php')){echo 'active';} ?>" href="chat.php">
                     チャット <span class="position-absolute translate-middle badge rounded-pill bg-secondary"><?=$chat_new?></span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link <?php if (nowp('/REQUESTION/php/all_notification.php')){echo 'active';} ?>" href="all_notification.php">
+                    <a class="nav-link <?php if (nowp('/requestion/php/all_notification.php')){echo 'active';} ?>" href="all_notification.php">
                         通知
                         <span class="badge bg-dark"><?=$new_all;?></span>
                     </a>

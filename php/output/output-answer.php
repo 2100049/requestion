@@ -1,4 +1,13 @@
 <?php
+//返信数取得
+$res = $pdo->prepare(
+'SELECT * FROM response
+INNER JOIN answer USING (ANS_ID)
+WHERE ANS_ID=?
+');
+$res->execute([$row['ANS_ID']]);
+$count = $res->rowcount();
+
 $defsrc = "user-icon-images/question.jpg";
 $img = $pdo -> prepare('SELECT user_icon FROM account WHERE AC_ID = ?');
 $img -> execute([$row['AC_ID']]);
@@ -18,8 +27,12 @@ echo <<<HTML
             <span class="bold">$row[AC_NAME]</span>
         </a>
     </div>
+    <div style="width: 100%;">
+        <div class="text-end"><small><i class="fas fa-angle-double-down"></i>返信数 : $count</small></div>
+    </div>
 </div>
 HTML;
+
 
 echo <<<HTML
 <div class="mx-auto mt-3 mb-3" style="width: 600px;">$ANS</div>

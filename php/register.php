@@ -29,33 +29,35 @@ if (isset($_REQUEST['AC_NAME']) && isset($_REQUEST['AC_PASS'])){
 }
 ?>
 
-<section class="contents mt-5">
-    <div class="mx-auto border bg-light p-3" style="width: 500px;">
-        <p class="tytle text-center">アカウント作成</p>
+<div class="text-center mt-5"><img src="../img/logo.svg" style="height: 30px;"></div>
 
-        <form class="m-5" method="POST">
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">ユーザーID</label>
-                <input type="text" class="form-control" name="AC_NAME" maxlength="15" required>
-            </div>
-    
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">パスワード</label>
-                <input type="password" class="form-control" name="AC_PASS" maxlength="100" required>
-            </div>
-    
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <input type="submit" class="btn btn-secondary btn-sm" value="作成">
-            </div>
-        </form>
-    
-        <p class="smtxt">
-            ユーザーIDは5文字以上15文字以内<br>
-            パスワードはスペースを含まない半角大文字、小文字、数字を含む8文字以上にしてください
-        </p>
+<div class="mx-auto border bg-white shadow-sm mt-2 p-5" style="width: 500px;">
+<h3 class="text-center">アカウント作成</h3>
 
-        <a href="login.php"><span class="smtxt">ログインページへ</span></a>
+    <form class="mt-5" method="POST">
+        <div class="alert alert-danger" role="alert">
+            <small>
+                ユーザーIDは5文字以上15文字以内<br>
+                パスワードはスペースを含まない半角大文字、小文字、数字を含む8文字以上にしてください
+            </small>
+        </div>
+
+        <div class="mt-2">
+            <input type="text" class="form-control" name="AC_NAME" placeholder="ユーザーID" maxlength="15" required autofocus>
+        </div>
+
+        <div class="mt-2">
+            <input type="password" class="form-control" name="AC_PASS" placeholder="パスワード" maxlength="100" required>
+        </div>
+
+        <div class="text-center mt-5">
+            <input type="submit" class="btn btn-primary btn-sm" id="btn" value="作成" style="width: 100%;">
+        </div>
+    </form>
+
+    <div class="text-center">
+        <a href="login.php"><small>ログインページへ</small></a>
     </div>
-</section>
+</div>
 
 <?php require '../footer.php'; ?>

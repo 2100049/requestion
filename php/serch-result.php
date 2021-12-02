@@ -6,22 +6,24 @@
 <?php
 if (isset($_REQUEST['serchkey'])){
     echo <<<HTML
-    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-        <input type="radio" class="btn-check" name="btnradio" id="key" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="key">キーワード検索</label>
+    <div class="mb-2 d-grid gap-2 col-5 mx-auto" role="group">
+        <div class="btn-group" role="group">
+            <input type="radio" class="btn-check" name="btnradio" id="key" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="key">キーワード検索</label>
 
-        <input type="radio" class="btn-check" name="btnradio" id="tag" autocomplete="off">
-        <label class="btn btn-outline-primary" for="tag">タグ検索</label>
+            <input type="radio" class="btn-check" name="btnradio" id="tag" autocomplete="off">
+            <label class="btn btn-outline-primary" for="tag">タグ検索</label>
+        </div>
     </div>
     HTML;
 }
 
 //フォーム検索
 if (isset($_REQUEST['serchkey'])){
-    $serchkey = $_REQUEST['serchkey'];
-    
-    $key = $pdo->prepare('
-    SELECT * FROM QUESTION
+    $serchkey = '%'.$_REQUEST['serchkey'].'%';
+
+    $key = $pdo->prepare(
+    'SELECT * FROM QUESTION
     INNER JOIN CATEGORY USING (CAT_ID)
     INNER JOIN ACCOUNT USING (AC_ID)
     WHERE QUE LIKE ?
@@ -29,16 +31,20 @@ if (isset($_REQUEST['serchkey'])){
     ');
     $key->execute([$serchkey]);
 
-    $tag = $pdo->prepare('
-    SELECT * FROM TAG
+    $tag = $pdo->prepare(
+    'SELECT * FROM TAG
     INNER JOIN QUESTION USING (QUE_ID)
     INNER JOIN ACCOUNT USING (AC_ID)
     WHERE TAG LIKE ?
     ORDER BY QUE_ID DESC
     ');
     $tag->execute([$serchkey]);
-
+ 
     //キーワード検索
+    echo <<<HTML
+    <div id="listkey">
+    HTML;
+
     if (!$key = $key->fetchAll()){
         echo <<<HTML
         <div class="divlink mx-auto mb-3 p-2 border bg-white shadow-sm" style="width: 700px">
@@ -56,31 +62,47 @@ if (isset($_REQUEST['serchkey'])){
             require 'output/output-question-index.php';
 
             echo <<<HTML
-                <a href="question-detail.php?QUE_ID=$row[QUE_ID]" class="link"></a>
+                    <a href="question-detail.php?QUE_ID=$row[QUE_ID]" class="link"></a>
+                </div>
             HTML;
         }
     }
 
+    echo <<<HTML
+    </div>
+    HTML;
+
     //タグ検索
     echo <<<HTML
-    <div class="divlink mx-auto mb-3 p-2 border bg-white shadow-sm" style="width: 700px">
+    <div id="listtag">
     HTML;
 
     if (!$tag = $tag->fetchAll()){
         echo <<<HTML
+        <div class="divlink mx-auto mb-3 p-2 border bg-white shadow-sm" style="width: 700px">
             検索結果が見つかりませんでした
+        </div>
         HTML;
     }else{
         foreach ($tag as $row){ //検索結果表示
+            echo <<<HTML
+            <div class="divlink mx-auto mb-3 p-2 border bg-white shadow-sm" style="width: 700px">
+            HTML;
+
             $QUE = omit(nl2br(h($row['QUE'])), 100);
 
             require 'output/output-question-index.php';
 
             echo <<<HTML
                 <a href="question-detail.php?QUE_ID=$row[QUE_ID]" class="link"></a>
+            </div>
             HTML;
         }
     }
+
+    echo <<<HTML
+    </div>
+    HTML;
 }
 
 //カテゴリ検索
@@ -156,10 +178,12 @@ $(document).ready(function() {
   $("#listtag").addClass('d-none');
 
   $("#key").click(function () {
-    $("#listtag").toggleClass('d-none');
+    $("#listkey").removeClass('d-none');
+    $("#listtag").addClass('d-none');
   });
   $("#tag").click(function () {
-    $("#listkey").toggleClass('d-none');
+    $("#listkey").addClass('d-none');
+    $("#listtag").removeClass('d-none');
   });
 });
 </script>

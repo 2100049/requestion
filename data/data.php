@@ -130,9 +130,21 @@ CREATE TABLE IF NOT EXISTS RESPONSE_notification(
 	FOREIGN KEY (AC_ID) REFERENCES ACCOUNT(AC_ID) ON DELETE CASCADE,
 	FOREIGN KEY (RES_ID) REFERENCES RESPONSE(RES_ID) ON DELETE CASCADE
 )
+SQL;
 
-
-
+$insert_category = <<< SQL
+INSERT INTO CATEGORY(CAT) 
+VALUES
+ ('仕事'), ('趣味'),
+ ('健康、美容'), ('住宅、家事'), ('ペット'),
+ ('電化製品'), ('自動車、バイク'),
+ ('サブカルチャー'), ('エンタメ'), ('テクノロジー'),
+ ('政治、社会問題'), ('ニュース、災害'), ('法律相談'),
+ ('学問、一般教養'), ('言葉、地域'),
+ ('学校、子育て'), ('恋愛'), ('旅行'),
+ ('公共施設、役所'), ('マナー、手紙'),
+ ('スポーツ'), ('交通機関、地図'), ('アウトドア'),
+ ('雑談'), ('その他');
 SQL;
 try {
     // DB接続
@@ -160,6 +172,18 @@ try {
     $pdo = null;
 }
 $pdo = new PDO('mysql:host=localhost; dbname=requestion; charset=utf8', 'staff', 'password');
+
 $TB_create = $pdo -> prepare($TB_create);
 $TB_create->execute();
+
+$pdo = new PDO('mysql:host=localhost; dbname=requestion; charset=utf8', 'staff', 'password');
+
+$category_check = $pdo-> prepare('SELECT * FROM CATEGORY WHERE CAT = ?');
+$category_check -> execute(["仕事"]);
+if(!$category_check -> fetch() ){
+	$pdo = new PDO('mysql:host=localhost; dbname=requestion; charset=utf8', 'staff', 'password');
+	
+	$category = $pdo->prepare($insert_category);
+	$category -> execute();
+}
 ?>

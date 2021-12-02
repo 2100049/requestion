@@ -119,28 +119,30 @@ insert into ACCOUNT values(null, 'sarutobi', 'MonkeyFly7',NULL,NULL,NULL);
 insert into ACCOUNT values(null, 'inuyama', 'DogMountain8',NULL,NULL,NULL);
 insert into ACCOUNT values(null, 'inokuchi', 'BoarMouse9',NULL,NULL,NULL);
 
-insert into CATEGORY(CAT) values('その他');
-insert into CATEGORY(CAT) values('仕事');
-insert into CATEGORY(CAT) values('趣味');
-insert into CATEGORY(CAT) values('サブカルチャー');
-insert into CATEGORY(CAT) values('エンタメ');
-insert into CATEGORY(CAT) values('スポーツ');
-insert into CATEGORY(CAT) values('健康、美容');
-insert into CATEGORY(CAT) values('住宅、家事');
-insert into CATEGORY(CAT) values('ペット');
-insert into CATEGORY(CAT) values('テクノロジー');
-insert into CATEGORY(CAT) values('法律相談');
-insert into CATEGORY(CAT) values('言葉、地域');
-insert into CATEGORY(CAT) values('学校、子育て');
-insert into CATEGORY(CAT) values('恋愛');
-insert into CATEGORY(CAT) values('政治、社会問題');
-insert into CATEGORY(CAT) values('ニュース');
-insert into CATEGORY(CAT) values('学問、一般教養');
-insert into CATEGORY(CAT) values('公共施設、役所');
-insert into CATEGORY(CAT) values('マナー、手紙');
-insert into CATEGORY(CAT) values('イラスト');
-insert into CATEGORY(CAT) values('ファッション');
-insert into CATEGORY(CAT) values('雑談');
+INSERT INTO CATEGORY(CAT) 
+VALUES
+('その他'),
+('仕事'),
+('趣味'),
+('サブカルチャー'),
+('エンタメ'),
+('スポーツ'),
+('健康、美容'),
+('住宅、家事'),
+('ペット'),
+('テクノロジー'),
+('法律相談'),
+('言葉、地域'),
+('学校、子育て'),
+('恋愛'),
+('政治、社会問題'),
+('ニュース'),
+('学問、一般教養'),
+('公共施設、役所'),
+('マナー、手紙'),
+('イラスト'),
+('ファッション'),
+('雑談');
 
 INSERT INTO follow VALUE (1,2);
 INSERT INTO follow VALUE (1,3);
