@@ -43,7 +43,7 @@ if (isset($_REQUEST['QUE'])){
   <div class="border bg-white shadow-sm mx-auto p-2" style="width: 700px;">
   <!-- action="question-preview.php" -->
     <form  onsubmit=" return text_chack(); " method="POST" enctype="multipart/form-data">
-      <textarea id="textarea" class="form-control " name="QUE" placeholder="500文字以内で入力" rows="7" maxlength="500" required autofocus></textarea>
+      <textarea id="textarea" class="form-control" name="QUE" placeholder="500文字以内で入力" rows="7" maxlength="500" required autofocus></textarea>
         <div class="input-group input-group-sm mt-2">
         <select class="form-select" name="CAT_ID" required>
           <option selected disabled value="">カテゴリ選択</option>

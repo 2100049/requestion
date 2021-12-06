@@ -1,4 +1,7 @@
 @charset "utf8";
+textarea{
+  resize: none;
+}
 body{
     padding-bottom: 20px;
 }

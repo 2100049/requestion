@@ -209,3 +209,29 @@ function inputtag() {
         alert("読み込み失敗");
       });
 }
+
+//tag投稿
+$('#addtagbtn').click(function () {
+  if($('#addtag [name="TAG"]').val().match(/^\s*$/)){
+    alert('タグを入力してください！');
+  }else{
+    $.ajax({
+      type: 'post',
+      url: 'tag-output.php',
+      data: {
+        "QUE_ID": $('#addtag [name="QUE_ID"]').val(),
+        "TAG": $('#addtag [name="TAG"]').val()
+      },
+    })
+      .then(
+      function (data) {
+        $('#readtag').html(data);
+        console.log(data);
+        $('#addtag [name="TAG"]').val('');
+      },
+      function () {
+        alert("読み込み失敗");
+        }
+    );
+  }
+})

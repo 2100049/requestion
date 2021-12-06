@@ -47,7 +47,7 @@ echo <<<HTML
     <div id="chatarea" class="chat">
       <div id="messageTextBox"></div>
       <div class="input-group fixed-bottom" style="position: absolute;">
-        <textarea id="message" class="form-control message" name="message" style="height: 24px; resize: none;" autofocus></textarea>
+        <textarea id="message" class="form-control message" name="message" style="height: 24px; resize: none;"></textarea>
         <button type="button" class="btn btn-primary" type="button" id="button-addon2" onclick="writeMessage()" value="">送信</button>
       </div>
     </div>

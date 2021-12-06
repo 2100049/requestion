@@ -74,7 +74,7 @@ if (isset($_GET['QUE_ID'])){
     </form>
     HTML;
 
-    //タグ表示
+    // タグ表示
     $tag = $pdo->prepare('SELECT * FROM TAG WHERE QUE_ID= ?');
     $tag->execute([$row['QUE_ID']]);
 
@@ -85,8 +85,11 @@ if (isset($_GET['QUE_ID'])){
         echo '<input class="submitlink" type="submit" name="TAG" value="', h($res['TAG']), '">, ';
     }
 
-    echo '</span>';
-    echo '</form>';
+    echo <<<HTML
+            <span id="readtag"></span>
+        </span>
+    </form>
+    HTML;
 }
 
 //希望表示

@@ -34,7 +34,7 @@ if (isset($_SESSION['REGISTER'])){
 
 <div class="text-center mt-5"><img src="../img/logo.svg" style="height: 30px;"></div>
 
-<div class="mx-auto border bg-white shadow-sm mt-2 p-5" style="width: 500px;">
+<div class="mx-auto border bg-white shadow-sm mt-2 pt-5 pb-5 ps-3 pe-3" style="width: 300px;">
     <h3 class="text-center">ログイン</h3>
 
     <form class="mt-5" method="POST">
@@ -46,13 +46,13 @@ if (isset($_SESSION['REGISTER'])){
             <input type="password" class="form-control" name="AC_PASS" placeholder="パスワード" value="<?= $AC_PASS ?>" maxlength="100" required>
         </div>
 
-        <div class="text-center mt-5">
+        <div class="text-center mt-2">
             <input type="submit" class="btn btn-primary btn-sm" id="btn" value="ログイン" style="width: 100%;">
         </div>
     </form>
 
-    <div class="text-center">
-        <a href="register.php"><small>アカウントを作成する</small></a>
+    <div class="text-center mt-5">
+        <a href="register.php" class="btn btn-outline-primary btn-sm" style="width: 100%;">新規登録</a>
     </div>
 </div>
 

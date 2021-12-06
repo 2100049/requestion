@@ -4,21 +4,6 @@
 <?php require_once '../nav.php'; ?>
 
 <?php
-//タグフォーム処理
-if (isset($_REQUEST['TAG'])){
-    $QUE_ID = $_GET['QUE_ID'];
-
-    $sql = $pdo->prepare('SELECT * FROM TAG WHERE QUE_ID=? AND TAG=?');
-    $sql->execute([$QUE_ID, $_REQUEST['TAG']]);
-
-    if (empty($sql->fetchAll())){
-        $sql = $pdo->prepare('INSERT INTO TAG VALUES(null, ?, ?)');
-        $sql->execute([$QUE_ID, $_REQUEST['TAG']]);
-    } else {
-        alert($_REQUEST['TAG']. ' は既に設定されています');
-    }
-}
-
 //評価フォーム処理
 if (isset($_REQUEST['rate'])){
     if ($_REQUEST['rate'] == 'GOOD'){
@@ -225,3 +210,10 @@ if(in()){
 ?>
 
 <?php require_once '../footer.php' ?>
+
+<script>
+// $(document).ready(function() {
+//     readtag();
+//     console.log("読み込んだよ");
+// });
+</script>
