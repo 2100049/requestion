@@ -210,10 +210,28 @@ function inputtag() {
       });
 }
 
+//タグ更新
+function reloadtag(){
+  var id = Number($('#queid').val());
+  $.ajax({
+    type: 'post',
+    url: './tag-reload.php',
+    data: {
+      'id' : id
+    }
+  })
+  .then(
+    function (data) {
+      $('#showtag').html(data)
+    },
+  )
+  console.log("タグを更新しました");
+}
+
 //tag投稿
 $('#addtagbtn').click(function () {
   if($('#addtag [name="TAG"]').val().match(/^\s*$/)){
-    alert('タグを入力してください！');
+    alert('タグを入力してください');
   }else{
     $.ajax({
       type: 'post',
@@ -223,15 +241,9 @@ $('#addtagbtn').click(function () {
         "TAG": $('#addtag [name="TAG"]').val()
       },
     })
-      .then(
-      function (data) {
-        $('#readtag').html(data);
-        console.log(data);
-        $('#addtag [name="TAG"]').val('');
-      },
-      function () {
-        alert("読み込み失敗");
-        }
-    );
+    .then(function(){
+      $('#addtag [name="TAG"]').val("");
+      reloadtag();
+    })
   }
-})
+});
