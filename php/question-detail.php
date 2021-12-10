@@ -212,8 +212,7 @@ if(in()){
 <?php require_once '../footer.php' ?>
 
 <script>
-// $(document).ready(function() {
-//     readtag();
-//     console.log("読み込んだよ");
-// });
+    $(document).ready(function(){
+        reloadtag();
+    });
 </script>
