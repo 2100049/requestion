@@ -72,24 +72,24 @@ if (isset($_GET['QUE_ID'])){
         <input type="hidden" name="CAT_ID" value="$row[CAT_ID]">
         <input type="submit" value="$row[CAT]" class="submitlink">
     </form>
+    
+    <input id="queid" type="hidden" name="QUE_ID" value="$_GET[QUE_ID]">
+    <div id="showtag"></div>
     HTML;
 
-    // タグ表示
-    $tag = $pdo->prepare('SELECT * FROM TAG WHERE QUE_ID= ?');
-    $tag->execute([$row['QUE_ID']]);
+    // //タグ表示
+    // $tag = $pdo->prepare('SELECT * FROM TAG WHERE QUE_ID= ?');
+    // $tag->execute([$row['QUE_ID']]);
 
-    echo '<form action="serch-result.php" method="POST">';
-    echo '<span class="smtxt">タグ : ';
+    // echo '<form action="serch-result.php" method="POST">';
+    // echo '<span class="smtxt">タグ : ';
 
-    foreach ($tag as $res){
-        echo '<input class="submitlink" type="submit" name="TAG" value="', h($res['TAG']), '">, ';
-    }
+    // foreach ($tag as $res){
+    //     echo '<input class="submitlink" type="submit" name="TAG" value="', h($res['TAG']), '">, ';
+    // }
 
-    echo <<<HTML
-            <span id="readtag"></span>
-        </span>
-    </form>
-    HTML;
+    // echo '</span>';
+    // echo '</form>';
 }
 
 //希望表示
